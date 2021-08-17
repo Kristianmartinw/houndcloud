@@ -1,11 +1,16 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('JoinsSongsAndPlaylists', {
+    return queryInterface.createTable('JoinsLikes', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
+        type: Sequelize.INTEGER
+      },
+      userId: {
+        references: { model: "Users" },
+        allowNull: false,
         type: Sequelize.INTEGER
       },
       songId: {
@@ -13,22 +18,19 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER
       },
-      playlistId: {
-        references: { model: "Playlists" },
-        allowNull: false,
-        type: Sequelize.INTEGER
-      },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn('now'),
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn('now'),
       }
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('JoinsSongsAndPlaylists');
+    return queryInterface.dropTable('JoinsLikes');
   }
 };

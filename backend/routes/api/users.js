@@ -39,8 +39,8 @@ const validateSignup = [
 
 // Sign up
 router.post('/', validateSignup, asyncHandler(async (req, res) => {
-    const { fName, lName, email, password, username } = req.body;
-    const user = await User.signup({ fName, lName, email, username, password });
+    const { fName, lName, username, email, password, } = req.body;
+    const user = await User.signup({ fName, lName, username, email, password });
 
     await setTokenCookie(res, user);
 
@@ -51,7 +51,7 @@ router.post('/', validateSignup, asyncHandler(async (req, res) => {
 );
 
 router.get('/', asyncHandler(async (req, res) => {
-    const users = await user.findAll();
+    const users = await User.findAll();
     console.log(users);
     return res.json(users)
 }));
