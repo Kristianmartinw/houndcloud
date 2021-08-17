@@ -4,6 +4,20 @@ const { Validator } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
+    fName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [3, 30]
+      }
+    },
+    lName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [3, 30]
+      }
+    },
     username: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -87,6 +101,8 @@ module.exports = (sequelize, DataTypes) => {
 
   User.associate = function (models) {
     // associations can be defined here
+    User.hasMany(models.Comment, { foreignKey: 'userId' })
+    User.hasMany(models.Playlist, { foreignKey: 'userId' })
   };
   return User;
 };
