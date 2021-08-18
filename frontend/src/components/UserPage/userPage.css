@@ -1,0 +1,60 @@
+body {
+    overflow-y: hidden;
+}
+
+.user-profile {
+     position: relative;
+     max-width: 60%;
+     height:100vh;
+     margin: auto;
+     padding: 30px;
+     border-left: 1px solid black;
+     border-right: 1px solid black;
+     background: whitesmoke;
+ }
+
+ #song-playlist-div {
+     border: 1px solid black;
+     height: 20em;
+     width: 100%;
+     overflow-y: scroll;
+ }
+
+#tracks {
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: auto;
+    border: 1px solid black;
+}
+
+#tracks:hover {
+    background-color: orange;
+    cursor: pointer;
+    animation: blink 0.5s ease-out alternate infinite;
+    transition-duration: 500ms;
+}
+
+#playlists{
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: auto;
+    border:1px solid black;
+}
+
+#playlists:hover {
+    background-color: orange;
+    cursor: pointer;
+    animation: blink 0.5s ease-out alternate infinite;
+    transition-duration: 500ms;
+}
+
+#comment-div {
+    padding-top: 5%;
+}
+
+#comments{
+    border:1px solid black;
+    width: 100%;
+    overflow-y: scroll;
+    height: 15em;
+}
