@@ -21,7 +21,7 @@ module.exports = {
         breedId: 7
       },
       {
-        name: 'Undercover meowing amongst the barks',
+        name: 'Undercover meows amongst barks',
         songUrl: './assets/song.mp3',
         songImg: './assets/image.png',
         userId: 3,
