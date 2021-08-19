@@ -1,5 +1,8 @@
 .navbar {
-    background-color: lightyellow;
+    display:flex;
+    justify-content: space-around;
+    background-color: cyan;
     width: 100vw;
+    height: 25px;
     border-bottom: 1px solid black;
 }

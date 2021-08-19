@@ -1,0 +1,50 @@
+.home-page {
+    position: relative;
+    max-width: 60%;
+    height:100vh;
+    margin: auto;
+    padding: 30px;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    background: whitesmoke;
+}
+
+.top-banner {
+    position: absolute;
+    border-bottom: 1px solid black;
+    height: 10%;
+    text-align: center;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+}
+
+.message {
+    position: relative;
+    top: 10%;
+    border: 1px solid black;
+    height: 8%;
+    text-align: center;
+}
+
+#h1-thing{
+    position: relative;
+    top: 10%;
+}
+
+#shuffle {
+    position: relative;
+    top: 10%;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: auto;
+    border: 1px solid black;
+}
+
+.random-songs {
+    position: relative;
+    top: 10%;
+    border: 1px dotted black;
+    overflow-y: scroll;
+    height: 40em;
+}

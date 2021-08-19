@@ -34,11 +34,6 @@ const UserPage = ({ users }) => {
                             <ul>Song 2</ul>
                             <ul>Song 3</ul>
                         </div>)}
-                        {/* <div id='song-playlist'>
-                            <ul>Song 1</ul>
-                            <ul>Song 2</ul>
-                            <ul>Song 3</ul>
-                        </div> */}
                         {playlists && (<div id='playlists-div'>
                             <ul>Playlist 1</ul>
                             <ul>Playlist 2</ul>

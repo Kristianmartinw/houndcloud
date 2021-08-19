@@ -1,20 +1,15 @@
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getBreeds } from '../../store/breeds';
+import { useSelector } from 'react-redux';
 import { Route, Link } from "react-router-dom";
 import BreedPage from "../BreedPage"
 import './breedsPage.css';
 
 const BreedList = () => {
-    const dispatch = useDispatch()
     const breeds = useSelector(state => {
         const arr = Object.values(state.breeds)
         return arr;
     })
 
-    useEffect(() => {
-        dispatch(getBreeds())
-    }, [dispatch])
+
     return (
         <>
             <Route exact path='/breeds'>
