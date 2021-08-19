@@ -12,6 +12,12 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
+    return queryInterface.bulkInsert('JoinsSongsAndPlaylists', [
+      {
+        songId: 4,
+        playlistId: 2
+      }
+    ], {});
   },
 
   down: (queryInterface, Sequelize) => {
@@ -22,5 +28,6 @@ module.exports = {
       Example:
       return queryInterface.bulkDelete('People', null, {});
     */
+    return queryInterface.bulkDelete('JoinsSongsAndPlaylists', null, { truncate: true, cascade: true, restartIdentity: true });
   }
 };

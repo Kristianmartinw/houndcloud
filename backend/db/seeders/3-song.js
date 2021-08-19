@@ -12,6 +12,50 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
+    return queryInterface.bulkInsert('Songs', [
+      {
+        name: 'Barking at League',
+        songUrl: './assets/song.mp3',
+        songImg: './assets/image.png',
+        userId: 2,
+        breedId: 7
+      },
+      {
+        title: 'Undercover meowing amongst the barks',
+        songUrl: './assets/song.mp3',
+        songImg: './assets/image.png',
+        userId: 3,
+        breedId: 2
+      },
+      {
+        title: 'Howling into the npm install',
+        songUrl: './assets/song.mp3',
+        songImg: './assets/image.png',
+        userId: 1,
+        breedId: 2
+      },
+      {
+        title: 'Colorblind',
+        songUrl: './assets/song.mp3',
+        songImg: './assets/image.png',
+        userId: 4,
+        breedId: 4
+      },
+      {
+        title: 'Wonderwall (barks)',
+        songUrl: './assets/song.mp3',
+        songImg: './assets/image.png',
+        userId: 5,
+        breedId: 3
+      },
+      {
+        title: 'Ruff Riders',
+        songUrl: './assets/song.mp3',
+        songImg: './assets/image.png',
+        userId: 6,
+        breedId: 14
+      },
+    ], {});
   },
 
   down: (queryInterface, Sequelize) => {
@@ -22,5 +66,6 @@ module.exports = {
       Example:
       return queryInterface.bulkDelete('People', null, {});
     */
+    return queryInterface.bulkDelete('Songs', null, { truncate: true, cascade: true, restartIdentity: true });
   }
 };
