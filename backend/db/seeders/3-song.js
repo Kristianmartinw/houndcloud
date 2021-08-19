@@ -21,35 +21,35 @@ module.exports = {
         breedId: 7
       },
       {
-        title: 'Undercover meowing amongst the barks',
+        name: 'Undercover meowing amongst the barks',
         songUrl: './assets/song.mp3',
         songImg: './assets/image.png',
         userId: 3,
         breedId: 2
       },
       {
-        title: 'Howling into the npm install',
+        name: 'Howling into the npm install',
         songUrl: './assets/song.mp3',
         songImg: './assets/image.png',
         userId: 1,
         breedId: 2
       },
       {
-        title: 'Colorblind',
+        name: 'Colorblind',
         songUrl: './assets/song.mp3',
         songImg: './assets/image.png',
         userId: 4,
         breedId: 4
       },
       {
-        title: 'Wonderwall (barks)',
+        name: 'Wonderwall (barks)',
         songUrl: './assets/song.mp3',
         songImg: './assets/image.png',
         userId: 5,
         breedId: 3
       },
       {
-        title: 'Ruff Riders',
+        name: 'Ruff Riders',
         songUrl: './assets/song.mp3',
         songImg: './assets/image.png',
         userId: 6,
