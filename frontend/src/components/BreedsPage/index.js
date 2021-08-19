@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getBreeds } from '../../store/breeds';
 import { Route, Link } from "react-router-dom";
 import BreedPage from "../BreedPage"
+import './breedsPage.css';
 
 const BreedList = () => {
     const dispatch = useDispatch()
@@ -18,10 +19,10 @@ const BreedList = () => {
         <>
             <Route exact path='/breeds'>
                 <div className='breeds-div'>
-                    <span>BREEDS</span>
-                    <div>
+                    <h1 className='breeds-title'>Breeds</h1>
+                    <div className='breeds-container'>
                         <ul>
-                            {breeds.map((breed) => <li key={breed.id}><Link to={`/breeds/${breed.id}`}>{breed.name}</Link></li>)}
+                            {breeds.map((breed) => <ul key={breed.id}><Link to={`/breeds/${breed.id}`}>{breed.name}</Link></ul>)}
                         </ul>
                     </div>
                 </div>

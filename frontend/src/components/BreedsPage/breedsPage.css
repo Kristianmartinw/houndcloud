@@ -1,4 +1,8 @@
-#users-div {
+.breeds-title{
+    text-align: center;
+}
+
+.breeds-div {
     position: relative;
     max-width: 60%;
     height:100vh;
@@ -8,3 +12,9 @@
     border-right: 1px solid black;
     background: whitesmoke;
 }
+
+.breeds-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto 1fr;
+  }

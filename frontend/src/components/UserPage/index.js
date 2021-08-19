@@ -1,10 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './userPage.css';
 import { useParams } from 'react-router';
 
+
 const UserPage = ({ users }) => {
+    const [tracks, setTracks] = useState(false)
+    const [playlists, setPlaylists] = useState(false)
     const { userId } = useParams();
     const user = users.find(user => user.id === +userId)
+    const handleToggle = (e) => {
+        if (e.target.id === 'tracks') {
+            setPlaylists(false)
+            setTracks(true)
+        } else {
+            setTracks(false)
+            setPlaylists(true)
+        }
+    }
 
     return (
         <>
@@ -15,18 +27,23 @@ const UserPage = ({ users }) => {
                             <h2>IMG {user.username}</h2>
                         </span>
                     </div>
-                    <span id='tracks'>Tracks</span><span id='playlists'>Playlists</span>
+                    <span id='tracks' onClick={handleToggle}>Tracks</span><span id='playlists' onClick={handleToggle}>Playlists</span>
                     <div id='song-playlist-div'>
-                        <div id='song-playlist'>
+                        {tracks && (<div id='song-playlist'>
                             <ul>Song 1</ul>
                             <ul>Song 2</ul>
                             <ul>Song 3</ul>
-                        </div>
-                        <div id='playlists-div'>
+                        </div>)}
+                        {/* <div id='song-playlist'>
+                            <ul>Song 1</ul>
+                            <ul>Song 2</ul>
+                            <ul>Song 3</ul>
+                        </div> */}
+                        {playlists && (<div id='playlists-div'>
                             <ul>Playlist 1</ul>
                             <ul>Playlist 2</ul>
-                            <ul>Playlist 3</ul>
-                        </div>
+                            <ul onClick={handleToggle}>{playlists ? 'Playlist 3' : 'Toggle is false'}</ul>
+                        </div>)}
                     </div>
                     <div id='comment-div'>
                         <span >Comments:</span>

@@ -1,0 +1,28 @@
+.breed-page {
+    position: relative;
+    max-width: 60%;
+    height:100vh;
+    margin: auto;
+    padding: 30px;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    background: whitesmoke;
+}
+.breedImg{
+    text-align: center;
+    border: 1px solid black;
+    width: 30%;
+    height: 10%;
+}
+
+.song-list{
+    padding-top: 1em;
+}
+
+.song {
+    border: 1px solid black;
+}
+
+.breed-songs{
+    border:1px dotted black;
+}

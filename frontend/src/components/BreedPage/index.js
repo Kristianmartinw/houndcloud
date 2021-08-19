@@ -1,4 +1,5 @@
 import React from 'react';
+import './breedPage.css';
 import { useParams } from 'react-router';
 
 const BreedPage = ({ breeds }) => {
@@ -13,11 +14,11 @@ const BreedPage = ({ breeds }) => {
                     <div className='breedImg'>
                         <span>Breed Image</span>
                     </div>
+                    <h5 className='song-list'>List of songs this breed has:</h5>
                     <div className='breed-songs'>
-                        <span>List of songs this breed has:</span>
-                        <li>Example 1</li>
-                        <li>Example 2</li>
-                        <li>Example 3</li>
+                        <ul className='song'>(IMG) [Song Title 1] Wave: -wwWwwWwwwwwWwwWw-</ul>
+                        <ul className='song'>(IMG) [Song Title 2] Wave: -wwwwwWWWWwwwWWww-</ul>
+                        <ul className='song'>(IMG) [Song Title 3] Wave: -WWwwwWWwwWWWwwwW-</ul>
                     </div>
                 </div>
             }
