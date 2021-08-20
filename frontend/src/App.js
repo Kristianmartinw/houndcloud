@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import AudioPlayer from 'react-h5-audio-player';
 import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import { getBreeds } from './store/breeds';
@@ -22,7 +23,7 @@ function App() {
 
   }, [dispatch]);
 
-  // testing moiz code
+  // testing aws
   const [file, setFile] = useState(null);
 
   const handleSubmit = e => {
@@ -64,6 +65,7 @@ function App() {
           </Route>
         </Switch>
       )}
+      <footer><AudioPlayer layout='horizontal' src={'https://hound-cloud.s3.us-west-1.amazonaws.com/1629446013018.mp3'} /></footer>
     </>
   );
 }

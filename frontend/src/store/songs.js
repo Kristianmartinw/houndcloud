@@ -21,6 +21,7 @@ export const uploadSongs = (song) => async (dispatch) => {
     const res = await csrfFetch('/api/songs', { method: 'POST', headers: { 'Content-Type': 'multipart/form-data' }, body: formData })
     if (res.ok) {
         const newSong = await res.json()
+        console.log('Created Song: ', newSong)
     }
 }
 

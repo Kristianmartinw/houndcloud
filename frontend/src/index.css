@@ -5,3 +5,14 @@ body {
     margin: 0;
 
 }
+
+footer {
+    position:fixed;
+    bottom:0px;
+    display: flex;
+    width: 100%;
+}
+
+footer div {
+    display: flex;
+}
