@@ -1,11 +1,12 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
+const { singleMulterUpload, singlePublicFileUpload } = require('../../awsS3')
 
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
-const { User } = require('../../db/models');
+const { Playlist, Song, User } = require('../../db/models');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
-const user = require('../../db/models/user');
+
 
 const router = express.Router();
 
@@ -30,6 +31,9 @@ const validateSignup = [
         .exists({ checkFalsy: true })
         .isEmail()
         .withMessage('Please provide a valid email.'),
+    // check('profilePic')
+    //     .exists({ checkFalsy: true })
+    //     .withMessage("Provide a profile picture or you'll be assigned a generic one."),
     check('password')
         .exists({ checkFalsy: true })
         .isLength({ min: 6 })
@@ -39,8 +43,8 @@ const validateSignup = [
 
 // Sign up
 router.post('/', validateSignup, asyncHandler(async (req, res) => {
-    const { fName, lName, username, email, password, } = req.body;
-    const user = await User.signup({ fName, lName, username, email, password });
+    const { fName, lName, username, email, profilePic, password, } = req.body;
+    const user = await User.signup({ fName, lName, username, email, profilePic, password });
 
     await setTokenCookie(res, user);
 
@@ -50,9 +54,11 @@ router.post('/', validateSignup, asyncHandler(async (req, res) => {
 }),
 );
 
+
 router.get('/', asyncHandler(async (req, res) => {
-    const users = await User.findAll();
-    console.log(users);
+    const users = await User.findAll({
+        include: [Song, Playlist]
+    });
     return res.json(users)
 }));
 

@@ -18,42 +18,42 @@ module.exports = {
         songUrl: './assets/song.mp3',
         songImg: './assets/image.png',
         userId: 2,
-        breedId: 7
+        breedId: 3
       },
       {
         name: 'Undercover meows amongst barks',
-        songUrl: './assets/song.mp3',
+        songUrl: './assets/song2.mp3',
         songImg: './assets/image.png',
         userId: 3,
         breedId: 2
       },
       {
         name: 'Howling into the npm install',
-        songUrl: './assets/song.mp3',
+        songUrl: './assets/song3.mp3',
         songImg: './assets/image.png',
         userId: 1,
         breedId: 2
       },
       {
         name: 'Colorblind',
-        songUrl: './assets/song.mp3',
+        songUrl: './assets/song4.mp3',
         songImg: './assets/image.png',
         userId: 4,
         breedId: 4
       },
       {
         name: 'Wonderwall (barks)',
-        songUrl: './assets/song.mp3',
+        songUrl: './assets/song5.mp3',
         songImg: './assets/image.png',
         userId: 5,
         breedId: 3
       },
       {
         name: 'Ruff Riders',
-        songUrl: './assets/song.mp3',
+        songUrl: './assets/song6.mp3',
         songImg: './assets/image.png',
         userId: 6,
-        breedId: 14
+        breedId: 8
       },
     ], {});
   },

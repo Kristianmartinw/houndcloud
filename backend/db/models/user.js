@@ -37,6 +37,13 @@ module.exports = (sequelize, DataTypes) => {
         len: [3, 256]
       },
     },
+    profilePic: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [3, 256]
+      },
+    },
     hashedPassword: {
       type: DataTypes.STRING.BINARY,
       allowNull: false,
@@ -89,13 +96,14 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
 
-  User.signup = async function ({ fName, lName, username, email, password }) {
+  User.signup = async function ({ fName, lName, username, email, profilePic, password }) {
     const hashedPassword = bcrypt.hashSync(password);
     const user = await User.create({
       fName,
       lName,
       username,
       email,
+      profilePic: '/defaultProPic',
       hashedPassword,
     });
     return await User.scope('currentUser').findByPk(user.id);
@@ -105,6 +113,7 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
     User.hasMany(models.Comment, { foreignKey: 'userId' })
     User.hasMany(models.Playlist, { foreignKey: 'userId' })
+    User.hasMany(models.Song, { foreignKey: 'userId' })
   };
   return User;
 };

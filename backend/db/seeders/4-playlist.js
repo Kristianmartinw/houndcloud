@@ -30,7 +30,7 @@ module.exports = {
         userId: 2
       },
       {
-        name: 'Binary code to dominate the world',
+        name: 'Validation Error',
         userId: 1
       },
       {
