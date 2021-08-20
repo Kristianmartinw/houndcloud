@@ -1,15 +1,23 @@
 import React from 'react';
 import './homePage.css';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const HomePage = () => {
     const breeds = useSelector(state =>
         state.breeds
     )
+
     const breedsArr = Object.values(breeds)
-    const randomInd = Math.floor(Math.random() * breedsArr.length)
+
+    const multiplier = 1000;
+    const maxNum = breedsArr.length * multiplier - 1;
+
+    const randomNum = Math.random() * maxNum;
+    const randomInd = Math.floor(randomNum / multiplier)
+
     const randomBreed = breedsArr[randomInd]
-    console.log(randomInd)
+    console.log('CHECK ----->', randomBreed?.Songs)
 
     return (
         <>
@@ -22,9 +30,7 @@ const HomePage = () => {
                     <h4 id='h1-thing'>Have you checked out {randomBreed?.name}? If not how about listening to some tracks below.</h4>
                     <span id='shuffle'>Shuffle</span>
                     <div className='random-songs'>
-                        <ul className='song'>(IMG) [Song Title 1] Wave: -wwWwwWwwwwwWwwWw-</ul>
-                        <ul className='song'>(IMG) [Song Title 2] Wave: -wwwwwWWWWwwwWWww-</ul>
-                        <ul className='song'>(IMG) [Song Title 3] Wave: -WWwwwWWwwWWWwwwW-</ul>
+                        <ul className='home-songlist'>{randomBreed?.Songs.map(song => <li key={song.id}><Link to={`/songs/${song.id}`}>{song.name}</Link></li>)}</ul>
                     </div>
                 </div>
             }

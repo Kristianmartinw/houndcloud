@@ -1,6 +1,7 @@
 import React from 'react';
 import './breedPage.css';
 import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const BreedPage = ({ breeds }) => {
     const { breedId } = useParams();
@@ -16,9 +17,7 @@ const BreedPage = ({ breeds }) => {
                     </div>
                     <h5 className='song-list'>List of songs this breed has:</h5>
                     <div className='breed-songs'>
-                        <ul className='song'>(IMG) [Song Title 1] Wave: -wwWwwWwwwwwWwwWw-</ul>
-                        <ul className='song'>(IMG) [Song Title 2] Wave: -wwwwwWWWWwwwWWww-</ul>
-                        <ul className='song'>(IMG) [Song Title 3] Wave: -WWwwwWWwwWWWwwwW-</ul>
+                        <ul className='breedspage-songlist'>{breed.Songs.map(song => <li key={song.id}><Link to={`/songs/${song.id}`}>{song.name}</Link></li>)}</ul>
                     </div>
                 </div>
             }

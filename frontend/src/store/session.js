@@ -17,7 +17,7 @@ const removeUser = () => {
 };
 
 export const signup = (user) => async (dispatch) => {
-    const { fName, lName,  username, email, password } = user;
+    const { fName, lName, username, email, profilePic, password } = user;
     const response = await csrfFetch("/api/users", {
         method: "POST",
         body: JSON.stringify({
@@ -25,6 +25,7 @@ export const signup = (user) => async (dispatch) => {
             lName,
             username,
             email,
+            profilePic,
             password,
         }),
     });

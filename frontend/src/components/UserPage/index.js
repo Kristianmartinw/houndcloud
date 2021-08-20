@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
 import './userPage.css';
 import { useParams } from 'react-router';
+import { useSelector } from 'react-redux'
 
 
 const UserPage = ({ users }) => {
     const [tracks, setTracks] = useState(false)
     const [playlists, setPlaylists] = useState(false)
+    const [selectSong, setSelectSong] = useState(false)
     const { userId } = useParams();
+
+    const songs = Object.values(useSelector(state => state.songs))
+
+
     const user = users.find(user => user.id === +userId)
     const handleToggle = (e) => {
         if (e.target.id === 'tracks') {
@@ -30,26 +36,17 @@ const UserPage = ({ users }) => {
                     <span id='tracks' onClick={handleToggle}>Tracks</span><span id='playlists' onClick={handleToggle}>Playlists</span>
                     <div id='song-playlist-div'>
                         {tracks && (<div id='song-playlist'>
-                            <ul>Song 1</ul>
-                            <ul>Song 2</ul>
-                            <ul>Song 3</ul>
+                            <ul className='user-songlist'>{user.Songs.map(song => <li id={song.id} onClick={e => setSelectSong(e.target.id)} key={song.id}>{song.name}</li>)}</ul>
                         </div>)}
                         {playlists && (<div id='playlists-div'>
-                            <ul>Playlist 1</ul>
-                            <ul>Playlist 2</ul>
-                            <ul onClick={handleToggle}>{playlists ? 'Playlist 3' : 'Toggle is false'}</ul>
+                            <ul className='user-playlist'>{user.Playlists.map(playlist => <li key={playlist.id}>{playlist.name}</li>)}</ul>
                         </div>)}
                     </div>
                     <div id='comment-div'>
                         <span >Comments:</span>
-                        <div id='comments'>
-                            <ul>Comment 1</ul>
-                            <ul>comment 2</ul>
-                            <ul>comment 3</ul>
-                            <ul>comment 4</ul>
-                            <ul>comment 5</ul>
-                            <ul>comment 6</ul>
-                        </div>
+                        {selectSong && <div id='comments'>
+                            <ul className='comments'>{songs.find(song => song.id === +selectSong).Comments.map(comment => <li key={comment.id}>{comment.comment}   - {comment.User.username}</li>)}</ul>
+                        </div>}
                     </div>
                 </div>
             }

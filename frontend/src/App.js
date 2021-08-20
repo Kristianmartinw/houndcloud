@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import { getBreeds } from './store/breeds';
+import { getSongs } from './store/songs';
+import { uploadSongs } from './store/songs';
 import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
@@ -15,8 +17,19 @@ function App() {
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
-    dispatch(getBreeds())
+    dispatch(getBreeds());
+    dispatch(getSongs());
+
   }, [dispatch]);
+
+  // testing moiz code
+  const [file, setFile] = useState(null);
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    console.log("FILE ------------->", file);
+    dispatch(uploadSongs(file))
+  }
 
   return (
     <>
@@ -37,6 +50,17 @@ function App() {
           </Route>
           <Route path='/users'>
             <UserList />
+          </Route>
+          <Route path='/upload'>
+            <h1>Upload file</h1>
+            <form onSubmit={handleSubmit}>
+              <label htmlFor='song'></label>
+              <input id='song' type='file' onChange={e => setFile(e.target.files[0])}></input>
+              <button>Submit</button>
+            </form>
+          </Route>
+          <Route>
+            404 You know what it is
           </Route>
         </Switch>
       )}

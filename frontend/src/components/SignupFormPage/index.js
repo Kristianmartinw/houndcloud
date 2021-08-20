@@ -21,7 +21,7 @@ function SignupFormPage() {
         e.preventDefault();
         if (password === confirmPassword) {
             setErrors([]);
-            return dispatch(sessionActions.signup({ fName, lName, email, username, password }))
+            return dispatch(sessionActions.signup({ fName, lName, email, profilePic: '/defaultProPic', username, password }))
                 .catch(async (res) => {
                     const data = await res.json();
                     if (data && data.errors) setErrors(data.errors);
