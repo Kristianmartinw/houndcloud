@@ -12,39 +12,110 @@
 .top-banner {
     position: absolute;
     border-bottom: 1px solid black;
-    height: 10%;
+    height: 8%;
     text-align: center;
     top: 0px;
     left: 0px;
     width: 100%;
 }
 
-.message {
+.banner {
+    height: 200%;
+    width: 100%;
+    border-bottom: 2px solid black;
+}
+
+.loggedInMessage {
     position: relative;
-    top: 10%;
+    top: 20%;
     border: 1px solid black;
     height: 8%;
     text-align: center;
+    line-height: 300%;
+    background: linear-gradient(217deg, rgba(119, 136, 153,.8), rgba(119, 136, 153,0) 70.71%)
+
+}
+
+.loggedOutMessage1 {
+    position: relative;
+    top: 18%;
+    height: 8%;
+    border: 1px solid black;
+    text-align: center;
+    font-size: 150%;
+    line-height: 250%;
+}
+
+.loggedOutMessage2 {
+    position: relative;
+    text-align: center;
+    font-size: 100%;
+    line-height: 1850%;
+    height: 8%;
+}
+
+.forPositioning {
+    position: relative;
+    text-align: center;
+    font-size: 100%;
+    line-height: 1850%;
+    height: 8%;
+}
+
+.signupRedirect {
+    text-decoration: none;
+    color: lightsteelblue;
+    font-size: 120%;
+}
+
+.signupRedirect:hover {
+    text-decoration: none;
+    color: orange;
+    cursor: pointer;
 }
 
 #h1-thing{
+    text-align: center;
+    border-bottom: 4px solid black;
+    border-radius: 30em;
     position: relative;
-    top: 10%;
+    top: 15%;
 }
 
 #shuffle {
     position: relative;
-    top: 10%;
+    top: 15%;
     padding-left: 5px;
     padding-right: 5px;
     padding-top: auto;
     border: 1px solid black;
 }
 
+#shuffle:hover {
+    background-color: orange;
+    cursor: pointer;
+    animation: blink 0.5s ease-out alternate infinite;
+    transition-duration: 500ms;
+}
+
 .random-songs {
+    top: 15%;
     position: relative;
-    top: 10%;
     border: 1px dotted black;
-    overflow-y: scroll;
-    height: 40em;
+    overflow-y: auto;
+    height: 30em;
+    background: linear-gradient(217deg, rgba(119, 136, 153,.8), rgba(119, 136, 153,0) 70.71%)
+}
+
+.home-songlist {
+    top: 15%;
+    border: 1px solid black;
+    border-radius: .9em;
+    padding: .5em;
+    background: rgba(120, 137, 155, .4);
+}
+
+.home-songlist:hover {
+    cursor: pointer;
+    background: rgba(255, 166, 0, .2);
 }

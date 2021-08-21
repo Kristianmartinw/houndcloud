@@ -13,6 +13,10 @@ module.exports = {
         unique: true,
         type: Sequelize.STRING
       },
+      breedImg: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

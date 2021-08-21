@@ -4,6 +4,8 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const HomePage = () => {
+    const sessionUser = useSelector(state => state.session.user);
+
     const breeds = useSelector(state =>
         state.breeds
     )
@@ -17,20 +19,30 @@ const HomePage = () => {
     const randomInd = Math.floor(randomNum / multiplier)
 
     const randomBreed = breedsArr[randomInd]
-    console.log('CHECK ----->', randomBreed?.Songs)
 
     return (
         <>
             {
                 <div className='home-page'>
                     <div className='top-banner'>
-                        <span>Banner Image</span>
+                        <span><img className='banner' src='https://hound-cloud.s3.us-west-1.amazonaws.com/1629522656571.jpg'></img></span>
                     </div>
-                    <h5 className='message'>Message to either ask a new user to sign up or to discover music</h5>
+                    {sessionUser ?
+                        <>
+                            <h1 className='loggedInMessage'>Welcome Back, {sessionUser.username}. </h1>
+                            <h5 className='forPositioning'></h5>
+                        </> :
+
+                        <>
+                            <h3 className='loggedOutMessage1'>New to HoundCloud? </h3>
+                            <h5 className='loggedOutMessage2'>How about signing up <Link className='signupRedirect' to='/signup'>here</Link> so you can get started on uploading your own tracks and more.</h5>
+                        </>
+                    }
                     <h4 id='h1-thing'>Have you checked out {randomBreed?.name}? If not how about listening to some tracks below.</h4>
                     <span id='shuffle'>Shuffle</span>
                     <div className='random-songs'>
-                        <ul className='home-songlist'>{randomBreed?.Songs.map(song => <li key={song.id}><Link to={`/songs/${song.id}`}>{song.name}</Link></li>)}</ul>
+                        <ul>{randomBreed?.Songs.map(song => <li className='home-songlist' key={song.id}><Link to={`/songs/${song.id}`}>
+                            ▶ {song.name}</Link></li>)}</ul>
                     </div>
                 </div>
             }

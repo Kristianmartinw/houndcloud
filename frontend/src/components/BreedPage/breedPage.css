@@ -20,8 +20,9 @@
     padding-top: 1em;
 }
 
-.song {
+.breedsongbox {
     border: 1px solid black;
+    border-radius: .9em;
 }
 
 .breed-songs{

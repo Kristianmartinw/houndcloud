@@ -16,8 +16,11 @@ const BreedPage = ({ breeds }) => {
                         <span>Breed Image</span>
                     </div>
                     <h5 className='song-list'>List of songs this breed has:</h5>
-                    <div className='breed-songs'>
-                        <ul className='breedspage-songlist'>{breed.Songs.map(song => <li key={song.id}><Link to={`/songs/${song.id}`}>{song.name}</Link></li>)}</ul>
+                    <div className='breedsongbox'>
+                        <div className='breed-songs'>
+                            <ul className='breedspage-songlist'>{breed.Songs.map(song => <li key={song.id}><Link to={`/songs/${song.id}`}>
+                                ▶ {song.name}</Link></li>)}</ul>
+                        </div>
                     </div>
                 </div>
             }

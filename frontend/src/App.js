@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import { getBreeds } from './store/breeds';
 import { getSongs } from './store/songs';
+import { getUsers } from './store/users';
 import { uploadSongs } from './store/songs';
 import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
@@ -12,6 +13,8 @@ import Navigation from "./components/Navigation";
 import BreedList from "./components/BreedsPage";
 import UserList from "./components/UsersList";
 import HomePage from "./components/HomePage";
+import { Link } from 'react-router-dom';
+import './index.css';
 
 function App() {
   const dispatch = useDispatch();
@@ -20,6 +23,7 @@ function App() {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
     dispatch(getBreeds());
     dispatch(getSongs());
+    dispatch(getUsers());
 
   }, [dispatch]);
 
@@ -61,7 +65,16 @@ function App() {
             </form>
           </Route>
           <Route>
-            404 You know what it is
+            <div className='routeDiv'>
+              <div className='containContainer'>
+                <div className='routeContainer'>
+                  <h1 className='foohfo'>404</h1>
+                  <h3 className='top404message'>You expected a page to load but you got DJ Pug instead.</h3>
+                  <img className='foohfoimg' src={'https://i.imgur.com/N5UDGn5.gif'}></img>
+                  <h3 className='bottom404message'>Click <Link to='/'>here</Link> so we can get you back to listening to music.</h3>
+                </div>
+              </div>
+            </div>
           </Route>
         </Switch>
       )}

@@ -2,18 +2,23 @@ import React, { useState } from 'react';
 import './userPage.css';
 import { useParams } from 'react-router';
 import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom';
 
 
 const UserPage = ({ users }) => {
+    const sessionUser = useSelector(state => state.session.user);
+    const { userId } = useParams();
+    const user = users.find(user => user.id === +userId)
+    const authorized = user?.id === sessionUser?.id
+
     const [tracks, setTracks] = useState(false)
     const [playlists, setPlaylists] = useState(false)
     const [selectSong, setSelectSong] = useState(false)
-    const { userId } = useParams();
 
     const songs = Object.values(useSelector(state => state.songs))
+    const selectedSong = songs.find(song => (song.id === +selectSong))
+    const userSong = +selectedSong?.userId === +sessionUser?.id
 
-
-    const user = users.find(user => user.id === +userId)
     const handleToggle = (e) => {
         if (e.target.id === 'tracks') {
             setPlaylists(false)
@@ -36,17 +41,27 @@ const UserPage = ({ users }) => {
                     <span id='tracks' onClick={handleToggle}>Tracks</span><span id='playlists' onClick={handleToggle}>Playlists</span>
                     <div id='song-playlist-div'>
                         {tracks && (<div id='song-playlist'>
-                            <ul className='user-songlist'>{user.Songs.map(song => <li id={song.id} onClick={e => setSelectSong(e.target.id)} key={song.id}>{song.name}</li>)}</ul>
+                            <div className='user-songlist'>{user.Songs.map(song => <div id={song.id} onClick={e => setSelectSong(e.target.id)} key={song.id}> ▶ {song.name}</div>)}</div>
                         </div>)}
+
                         {playlists && (<div id='playlists-div'>
-                            <ul className='user-playlist'>{user.Playlists.map(playlist => <li key={playlist.id}>{playlist.name}</li>)}</ul>
+                            <div className='user-playlist'>{user.Playlists.map(playlist => <div key={playlist.id}> ▶ {playlist.name}</div>)}</div>
                         </div>)}
                     </div>
+                    {tracks && authorized && <span className='uploadTrack'>Upload Track</span>
+
+                    }
+                    {playlists && authorized && <span className='createPlaylist'>Create Playlist</span>
+
+                    }
                     <div id='comment-div'>
-                        <span >Comments:</span>
-                        {selectSong && <div id='comments'>
-                            <ul className='comments'>{songs.find(song => song.id === +selectSong).Comments.map(comment => <li key={comment.id}>{comment.comment}   - {comment.User.username}</li>)}</ul>
-                        </div>}
+                        <span className='commentBox'>Comments:</span>
+                        <div className='comments-box'>
+                            {selectSong && <div id='comments'>
+                                <div className='comments'>{songs.find(song => song.id === +selectSong).Comments.map(comment => <div key={comment.id}><Link to={`/users/${comment.User.id}`}><span className='commentingUser'>{comment.User.username}</span></Link>: <span className='commentedText'>"{comment.comment}"</span></div>)}</div>
+                            </div>}
+                        </div>
+                        {selectSong && sessionUser && !userSong && <span className='createComment'> Create Comment</span>}
                     </div>
                 </div>
             }

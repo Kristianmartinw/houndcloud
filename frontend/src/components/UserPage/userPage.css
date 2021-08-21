@@ -17,7 +17,8 @@ body {
      border: 1px solid black;
      height: 20em;
      width: 100%;
-     overflow-y: scroll;
+     overflow-y: auto;
+     background: linear-gradient(217deg, rgba(119, 136, 153,.8), rgba(119, 136, 153,0) 70.71%)
  }
 
 #tracks {
@@ -34,6 +35,38 @@ body {
     transition-duration: 500ms;
 }
 
+.user-songlist {
+    border: 1px solid black;
+    border-radius: .9em;
+    padding: .5em;
+    background: rgba(120, 137, 155, .4);
+}
+
+.user-songlist:hover {
+   cursor:pointer;
+   background: rgba(255, 166, 0, .2);
+}
+
+.user-playlist {
+    border: 1px solid black;
+    border-radius: .9em;
+    padding: .5em;
+    background: rgba(120, 137, 155, .4);
+}
+
+.user-playlist:hover {
+    cursor:pointer;
+    background: rgba(255, 166, 0, .2);
+}
+
+.comments {
+    border-bottom: 1px solid black;
+    border-radius: 30em;
+    width: 50%;
+    text-decoration: none;
+    background: rgba(120, 137, 155, .2);
+}
+
 #playlists{
     padding-left: 5px;
     padding-right: 5px;
@@ -48,13 +81,72 @@ body {
     transition-duration: 500ms;
 }
 
+.commentBox {
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: auto;
+    border: 1px solid black;
+}
+
 #comment-div {
     padding-top: 5%;
 }
 
-#comments{
+.commentingUser{
+    text-decoration: none;
+}
+
+.commentingUser:hover{
+    cursor: pointer;
+    color: orange;
+}
+
+.commentedText{
+   color:gray;
+   font-style: italic;
+}
+
+.comments-box{
     border:1px solid black;
     width: 100%;
     overflow-y: scroll;
     height: 15em;
+    background: linear-gradient(217deg, rgba(119, 136, 153,.8), rgba(119, 136, 153,0) 70.71%)
+}
+
+.uploadTrack {
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: auto;
+    border: 1px solid black;
+}
+
+.uploadTrack:hover {
+    cursor:pointer;
+    background:orange
+}
+
+.createPlaylist {
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: auto;
+    border: 1px solid black;
+}
+
+.createPlaylist:hover {
+    cursor:pointer;
+    background:orange
+}
+
+.createComment {
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: auto;
+    border: 1px solid black;
+}
+
+
+.createComment:hover {
+    cursor:pointer;
+    background:orange;
 }

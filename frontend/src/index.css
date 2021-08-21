@@ -6,13 +6,91 @@ body {
 
 }
 
-footer {
-    position:fixed;
-    bottom:0px;
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: lightslategrey;
+    border: none;
+    border-radius: 8em;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: orange;
+  }
+
+.routeDiv {
+    position: relative;
+    max-width: 60%;
+    height:100vh;
+    margin: auto;
+    padding: 30px;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    background: whitesmoke;
+}
+
+.routeContainer {
+    border: 1px solid black;
+
+}
+
+.foohfo {
     display: flex;
+    justify-content: center;
+}
+
+.top404message {
+    text-align: center;
+}
+
+.bottom404message {
+    text-align:center;
+}
+
+.foohfoimg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+footer {
+    display: flex;
+    position:fixed;
+    justify-content: center;
+    bottom:0px;
     width: 100%;
+    background-color: lightslategray;
 }
 
 footer div {
     display: flex;
+}
+
+div#rhap_current-time.rhap_time.rhap_current-time {
+   display: flex;
+   align-self: center;
+}
+
+button.rhap_button-clear {
+    background-color: transparent;
+    border: none;
+}
+
+div.rhap_time.rhap_total-time {
+    display:none;
+}
+
+svg {
+
+    font-size: 3em;
 }

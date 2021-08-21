@@ -3,6 +3,9 @@
 }
 
 .breeds-div {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
     position: relative;
     max-width: 60%;
     height:100vh;
@@ -14,7 +17,62 @@
 }
 
 .breeds-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto auto auto 1fr;
+    overflow-y: auto;
+    height: 85%;
+}
+
+.breedName {
+    font-size: 4em;
+}
+
+.dogImg {
+    text-align:center;
+}
+
+.breedsImg {
+    width:  150px;
+    height: 150px;
+    object-fit:cover;
+  }
+
+  .breedsImg:hover {
+    cursor:pointer;
+    border: 5px solid orange;
+    border-radius: 50em;
+  }
+
+  .breedName {
+      text-align: center;
+      font-size: 250%;
+      border-bottom: 4px solid black;
+      border-radius: 30em;
+      background: linear-gradient(217deg, rgba(119, 136, 153,.8), rgba(119, 136, 153,0) 70.71%)
+  }
+
+  .selectBreed {
+    text-align: center;
+    height: 5%;
+    font-size: 250%;
+    border-bottom: 4px solid black;
+    border-radius: 30em;
+    background: linear-gradient(217deg, rgba(119, 136, 153,.8), rgba(119, 136, 153,0) 70.71%)
+  }
+
+  .breedsSongsContainers {
+      padding: 1%;
+      overflow:auto;
+      height:75%;
+  }
+
+  .breedsSongsList {
+    top: 15%;
+    border: 1px solid black;
+    border-radius: .9em;
+    padding: .5em;
+    background: rgba(120, 137, 155, .4);
+  }
+
+  .breedsSongsList:hover {
+    cursor: pointer;
+    background: rgba(255, 166, 0, .2);
   }

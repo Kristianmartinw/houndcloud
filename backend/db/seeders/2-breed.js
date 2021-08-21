@@ -7,20 +7,62 @@ module.exports = {
       Return a promise to correctly handle asynchronicity.
 */
     return queryInterface.bulkInsert('Breeds', [
-      { name: 'Beagle', createdAt: new Date(), updatedAt: new Date() },
-      { name: 'Poodle', createdAt: new Date(), updatedAt: new Date() },
-      { name: 'Alaskan Malamute', createdAt: new Date(), updatedAt: new Date() },
-      { name: 'Golden Labrador', createdAt: new Date(), updatedAt: new Date() },
-      { name: 'Pug', createdAt: new Date(), updatedAt: new Date() },
-      { name: 'Chihuahua', createdAt: new Date(), updatedAt: new Date() },
-      { name: 'Shiba Inu', createdAt: new Date(), updatedAt: new Date() },
-      { name: 'Great Dane', createdAt: new Date(), updatedAt: new Date() },
-      { name: 'Basset Hound', createdAt: new Date(), updatedAt: new Date() },
-      { name: 'St. Bernard', createdAt: new Date(), updatedAt: new Date() },
-      { name: 'Pembroke Welsh Corgi', createdAt: new Date(), updatedAt: new Date() },
-      { name: 'Chow Chow', createdAt: new Date(), updatedAt: new Date() },
-      { name: 'Pitbull', createdAt: new Date(), updatedAt: new Date() },
-      { name: 'Pekingese', createdAt: new Date(), updatedAt: new Date() }
+      {
+        name: 'Beagle',
+        breedImg: 'https://hound-cloud.s3.us-west-1.amazonaws.com/1629508442007.png'
+      },
+      {
+        name: 'Poodle',
+        breedImg: 'https://hound-cloud.s3.us-west-1.amazonaws.com/1629508593029.jpg'
+      },
+      {
+        name: 'Alaskan Malamute',
+        breedImg: 'https://hound-cloud.s3.amazonaws.com/1629508398534.jpeg'
+      },
+      {
+        name: 'Golden Labrador',
+        breedImg: 'https://hound-cloud.s3.us-west-1.amazonaws.com/1629508499979.jpg'
+      },
+      {
+        name: 'Pug',
+        breedImg: 'https://hound-cloud.s3.us-west-1.amazonaws.com/1629508606256.jpg'
+      },
+      {
+        name: 'Chihuahua',
+        breedImg: 'https://hound-cloud.s3.us-west-1.amazonaws.com/1629508470476.jpg'
+      },
+      {
+        name: 'Shiba Inu',
+        breedImg: 'https://hound-cloud.s3.us-west-1.amazonaws.com/1629508619166.jpg'
+      },
+      {
+        name: 'Great Dane',
+        breedImg: 'https://hound-cloud.s3.us-west-1.amazonaws.com/1629508513807.jpg'
+      },
+      {
+        name: 'Basset Hound',
+        breedImg: 'https://hound-cloud.s3.us-west-1.amazonaws.com/1629508420440.jpg'
+      },
+      {
+        name: 'St. Bernard',
+        breedImg: 'https://hound-cloud.s3.us-west-1.amazonaws.com/1629508632417.jpeg'
+      },
+      {
+        name: 'Pembroke Welsh Corgi',
+        breedImg: 'https://hound-cloud.s3.us-west-1.amazonaws.com/1629508563009.jpg'
+      },
+      {
+        name: 'Chow Chow',
+        breedImg: 'https://hound-cloud.s3.us-west-1.amazonaws.com/1629508485814.jpg'
+      },
+      {
+        name: 'Pitbull',
+        breedImg: 'https://hound-cloud.s3.us-west-1.amazonaws.com/1629508579769.jpg'
+      },
+      {
+        name: 'Pekingese',
+        breedImg: 'https://hound-cloud.s3.us-west-1.amazonaws.com/1629508547137.jpg'
+      }
     ], {});
   },
 
