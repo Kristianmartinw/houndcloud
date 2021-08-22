@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const asyncHandler = require('express-async-handler');
 const { Breed, Song, User } = require('../../db/models');
-const breedRouter = require('./users');
+// const breedRouter = require('./users');
 
-router.use('/breeds', breedRouter)
+// router.use('/breeds', breedRouter)
 
 //get all breeds
 router.get('/', asyncHandler(async (req, res) => {

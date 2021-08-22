@@ -5,7 +5,6 @@ import { Route, Switch } from "react-router-dom";
 import { getBreeds } from './store/breeds';
 import { getSongs } from './store/songs';
 import { getUsers } from './store/users';
-import { uploadSongs } from './store/songs';
 import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
@@ -27,14 +26,7 @@ function App() {
 
   }, [dispatch]);
 
-  // testing aws
-  const [file, setFile] = useState(null);
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    console.log("FILE ------------->", file);
-    dispatch(uploadSongs(file))
-  }
+  const [currentlyPlaying, setCurrentlyPlaying] = useState('')
 
   return (
     <>
@@ -54,15 +46,7 @@ function App() {
             <BreedList />
           </Route>
           <Route path='/users'>
-            <UserList />
-          </Route>
-          <Route path='/upload'>
-            <h1>Upload file</h1>
-            <form onSubmit={handleSubmit}>
-              <label htmlFor='song'></label>
-              <input id='song' type='file' onChange={e => setFile(e.target.files[0])}></input>
-              <button>Submit</button>
-            </form>
+            <UserList setCurrentlyPlaying={setCurrentlyPlaying} />
           </Route>
           <Route>
             <div className='routeDiv'>
@@ -78,7 +62,7 @@ function App() {
           </Route>
         </Switch>
       )}
-      <footer><AudioPlayer layout='horizontal' src={'https://hound-cloud.s3.us-west-1.amazonaws.com/1629446013018.mp3'} /></footer>
+      <footer><AudioPlayer layout='horizontal' src={currentlyPlaying} /></footer>
     </>
   );
 }

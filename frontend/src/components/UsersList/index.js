@@ -5,7 +5,7 @@ import { Route, Link } from "react-router-dom";
 import UserPage from "../UserPage"
 import './userList.css';
 
-const UserList = () => {
+const UserList = ({ setCurrentlyPlaying }) => {
     const dispatch = useDispatch()
     const users = useSelector(state => {
         const arr = Object.values(state.users)
@@ -25,7 +25,7 @@ const UserList = () => {
                 </div>
             </Route>
             <Route path='/users/:userId'>
-                <UserPage users={users} />
+                <UserPage setCurrentlyPlaying={setCurrentlyPlaying} />
             </Route>
         </>
     )

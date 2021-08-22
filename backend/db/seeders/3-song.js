@@ -15,6 +15,7 @@ module.exports = {
     return queryInterface.bulkInsert('Songs', [
       {
         name: 'Barking at League',
+        length: 265,
         songUrl: './assets/song.mp3',
         songImg: './assets/image.png',
         userId: 2,
@@ -22,6 +23,7 @@ module.exports = {
       },
       {
         name: 'Undercover meows amongst barks',
+        length: 45,
         songUrl: './assets/song2.mp3',
         songImg: './assets/image.png',
         userId: 3,
@@ -29,6 +31,7 @@ module.exports = {
       },
       {
         name: 'Howling into the npm install',
+        length: 142,
         songUrl: './assets/song3.mp3',
         songImg: './assets/image.png',
         userId: 1,
@@ -36,6 +39,7 @@ module.exports = {
       },
       {
         name: 'Colorblind',
+        length: 219,
         songUrl: './assets/song4.mp3',
         songImg: './assets/image.png',
         userId: 4,
@@ -43,6 +47,7 @@ module.exports = {
       },
       {
         name: 'Wonderwall (barks)',
+        length: 87,
         songUrl: './assets/song5.mp3',
         songImg: './assets/image.png',
         userId: 5,
@@ -50,6 +55,7 @@ module.exports = {
       },
       {
         name: 'Ruff Riders',
+        length: 103,
         songUrl: './assets/song6.mp3',
         songImg: './assets/image.png',
         userId: 6,

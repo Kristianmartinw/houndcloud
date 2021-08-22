@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const asyncHandler = require('express-async-handler');
 const { User } = require('../../db/models');
-const homeRouter = require('./users');
+// const homeRouter = require('./users');
 
-router.use('/home', homeRouter)
+// router.use('/home', homeRouter)
 
 router.get('/', asyncHandler(async (req, res) => {
     const users = await User.findAll()

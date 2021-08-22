@@ -112,10 +112,16 @@
     border: 1px solid black;
     border-radius: .9em;
     padding: .5em;
+    width: 80%;
     background: rgba(120, 137, 155, .4);
 }
 
 .home-songlist:hover {
+    cursor: pointer;
+    background: rgba(255, 166, 0, .2);
+}
+
+.home-songlist:focus {
     cursor: pointer;
     background: rgba(255, 166, 0, .2);
 }

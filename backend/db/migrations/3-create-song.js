@@ -12,6 +12,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING(30)
       },
+      length: {
+        allowNull: false,
+        type: Sequelize.INTEGER
+      },
       songUrl: {
         allowNull: false,
         unique: true,

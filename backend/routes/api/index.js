@@ -4,6 +4,8 @@ const usersRouter = require('./users.js');
 const breedsRouter = require('./breeds.js');
 const homeRouter = require('./home.js');
 const songsRouter = require('./songs.js')
+const commentsRouter = require('./comments.js')
+const playlistsRouter = require('./playlists.js')
 const asyncHandler = require('express-async-handler');
 const { setTokenCookie } = require('../../utils/auth.js');
 const { User } = require('../../db/models');
@@ -15,6 +17,8 @@ router.use('/users', usersRouter);
 router.use('/breeds', breedsRouter);
 router.use('/songs', songsRouter);
 router.use('/home', homeRouter);
+router.use('/playlists', playlistsRouter);
+router.use('/comments', commentsRouter);
 
 // GET /api/set-token-cookie
 router.get('/set-token-cookie', asyncHandler(async (req, res) => {

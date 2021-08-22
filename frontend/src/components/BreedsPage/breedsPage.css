@@ -37,7 +37,13 @@
 
   .breedsImg:hover {
     cursor:pointer;
-    border: 5px solid orange;
+    border: 5px solid rgba(255, 165, 0, .4);
+    border-radius: 50em;
+  }
+
+  .breedsImg:focus {
+    cursor:pointer;
+    border: 5px solid rgba(255, 165, 0, .4);
     border-radius: 50em;
   }
 
@@ -73,6 +79,11 @@
   }
 
   .breedsSongsList:hover {
+    cursor: pointer;
+    background: rgba(255, 166, 0, .2);
+  }
+
+  .breedsSongsList:focus {
     cursor: pointer;
     background: rgba(255, 166, 0, .2);
   }

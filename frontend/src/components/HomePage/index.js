@@ -3,7 +3,7 @@ import './homePage.css';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-const HomePage = () => {
+const HomePage = ({ setCurrentlyPlaying }) => {
     const sessionUser = useSelector(state => state.session.user);
 
     const breeds = useSelector(state =>
@@ -41,8 +41,9 @@ const HomePage = () => {
                     <h4 id='h1-thing'>Have you checked out {randomBreed?.name}? If not how about listening to some tracks below.</h4>
                     <span id='shuffle'>Shuffle</span>
                     <div className='random-songs'>
-                        <ul>{randomBreed?.Songs.map(song => <li className='home-songlist' key={song.id}><Link to={`/songs/${song.id}`}>
-                            ▶ {song.name}</Link></li>)}</ul>
+                        <div>{randomBreed?.Songs.map(song => <div className='home-songlist' tabindex={song.id} key={song.id}>
+                            <span onClick={e => setCurrentlyPlaying(song.songUrl)}>▶</span> {song.name}</div>)}
+                        </div>
                     </div>
                 </div>
             }

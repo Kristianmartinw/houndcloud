@@ -13,6 +13,16 @@ body {
      background: whitesmoke;
  }
 
+ .userPic {
+    object-fit:cover;
+    width: 30%;
+    border: 1px solid black
+ }
+
+ .userUsername {
+    font-size: 200%;
+ }
+
  #song-playlist-div {
      border: 1px solid black;
      height: 20em;
@@ -47,6 +57,10 @@ body {
    background: rgba(255, 166, 0, .2);
 }
 
+.user-songlist:focus {
+    background: rgba(255, 166, 0, .2);
+}
+
 .user-playlist {
     border: 1px solid black;
     border-radius: .9em;
@@ -56,6 +70,10 @@ body {
 
 .user-playlist:hover {
     cursor:pointer;
+    background: rgba(255, 166, 0, .2);
+}
+
+.user-playlist:focus {
     background: rgba(255, 166, 0, .2);
 }
 
@@ -109,7 +127,7 @@ body {
 .comments-box{
     border:1px solid black;
     width: 100%;
-    overflow-y: scroll;
+    overflow-y: auto;
     height: 15em;
     background: linear-gradient(217deg, rgba(119, 136, 153,.8), rgba(119, 136, 153,0) 70.71%)
 }
@@ -126,6 +144,18 @@ body {
     background:orange
 }
 
+.deleteTrack {
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: auto;
+    border: 1px solid black;
+}
+
+.deleteTrack:hover {
+    cursor:pointer;
+    background:orange
+}
+
 .createPlaylist {
     padding-left: 5px;
     padding-right: 5px;
@@ -134,6 +164,18 @@ body {
 }
 
 .createPlaylist:hover {
+    cursor:pointer;
+    background:orange
+}
+
+.deletePlaylist {
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: auto;
+    border: 1px solid black;
+}
+
+.deletePlaylist:hover {
     cursor:pointer;
     background:orange
 }
@@ -147,6 +189,19 @@ body {
 
 
 .createComment:hover {
+    cursor:pointer;
+    background:orange;
+}
+
+.deleteComment {
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: auto;
+    border: 1px solid black;
+}
+
+
+.deleteComment:hover {
     cursor:pointer;
     background:orange;
 }
