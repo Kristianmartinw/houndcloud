@@ -13,14 +13,13 @@ Houndcloud is a Soundcloud clone where users can create an account and upload so
 ## Features to be implemented later: 
   - Adding a search bar to find either users, breed, songs, or playlists
   - Moving songs between playlists
-  - Displaying songs on a playlist
   - Editing a playlist, song, username, and comment name
   - Uploading user profile pictures and having the ability to change them
   - Hitting a shuffle button to change genres so you can expand your barking musical tastes
   - Displaying the current song playing on the footer near the song player
   - Adding waves to songs
   - Dragging playlists and songs to change their order
-  - Demo user
+  - Demo user button
 
 ## Bugs that are still being worked on: 
   - Clicking songs to play on home page changes the random breed
