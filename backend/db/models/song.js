@@ -12,11 +12,14 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
     Song.belongsTo(models.User, { foreignKey: 'userId' })
     Song.belongsTo(models.Breed, { foreignKey: 'id' })
-    Song.hasMany(models.Comment, { foreignKey: 'songId' })
+    Song.hasMany(models.Comment, { foreignKey: 'songId', onDelete: 'CASCADE', hooks: true })
     const columnMapping = {
-      through: 'joinsSongsAndPlaylist',
+      through: 'JoinsSongsAndPlaylist',
       foreignKey: 'songId',
       otherKey: 'playlistId',
+      onDelete: 'CASCADE',
+      hooks: true
+
     };
     Song.belongsToMany(models.Playlist, columnMapping)
   };

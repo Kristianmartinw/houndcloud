@@ -2,7 +2,7 @@ const express = require('express');
 const asyncHandler = require('express-async-handler');
 const { singleMulterUpload, singlePublicFileUpload } = require('../../awsS3')
 const router = express.Router();
-const { Comment, User, Song } = require('../../db/models')
+const { Comment, User, Song, Playlist } = require('../../db/models')
 
 // Post /api/users ---Sign up
 router.post("/upload", singleMulterUpload("song"), asyncHandler(async (req, res) => {

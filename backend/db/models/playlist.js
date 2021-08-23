@@ -8,9 +8,11 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
     Playlist.belongsTo(models.User, { foreignKey: 'userId' })
     const columnMapping = {
-      through: 'joinsSongsAndPlaylist',
+      through: 'JoinsSongsAndPlaylist',
       foreignKey: 'playlistId',
       otherKey: 'songId',
+      onDelete: 'CASCADE',
+      hooks: true
     };
     Playlist.belongsToMany(models.Song, columnMapping)
   };
