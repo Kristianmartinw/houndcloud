@@ -3,6 +3,9 @@
 
 Houndcloud is a Soundcloud clone where users can create an account and upload songs and listen to songs that other users have made but the twist is that the songs are barks of different dog breeds.
 
+## To test out features:
+  - You can log into demo user at (username: Demo User) (password: Test!123)
+
 ## Some other features include: 
   - Creating playlists and addings songs you like to those playlists.
   - Commenting on songs you like.
