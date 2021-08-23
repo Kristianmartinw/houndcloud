@@ -25,3 +25,4 @@ Houndcloud is a Soundcloud clone where users can create an account and upload so
   - The Delete Track and Delete Playlist persist even when not focused on tracks or playlists
   - Deleting a Song and comment not updating without refresh
 
+### If you want more info on this project check out the [wiki](https://github.com/Kristianmartinw/houndcloud/wiki)!
