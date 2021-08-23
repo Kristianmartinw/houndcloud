@@ -41,7 +41,12 @@ body {
 
 .routeContainer {
     border: 1px solid black;
+    background: linear-gradient(217deg, rgba(119, 136, 153,1), rgba(119, 136, 153,0) 100%);
+    transform: translate(0%, 78%);
+}
 
+.gitHub {
+    max-width: 5%
 }
 
 .foohfo {

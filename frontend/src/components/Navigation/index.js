@@ -26,7 +26,7 @@ function Navigation({ isLoaded }) {
             <NavLink className='navLinks' exact to="/">Home</NavLink>
             <NavLink className='navLinks' to='/breeds'>Breeds</NavLink>
             <NavLink className='navLinks' to='/users'>Users</NavLink>
-            <input></input>
+            <input placeholder="Sorry! Currently WIP 🚧🚧"></input>
             {isLoaded && sessionLinks}
         </div>
     );

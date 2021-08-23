@@ -21,6 +21,9 @@ body {
 
  .userUsername {
     font-size: 200%;
+    border-bottom: 3px solid black;
+    border-radius: 30em;
+    background: linear-gradient(217deg, rgba(119, 136, 153,.8), rgba(119, 136, 153,0) 70.71%)
  }
 
  #song-playlist-div {
@@ -28,6 +31,7 @@ body {
      height: 20em;
      width: 100%;
      overflow-y: auto;
+     border-radius: .3em;
      background: linear-gradient(217deg, rgba(119, 136, 153,.8), rgba(119, 136, 153,0) 70.71%)
  }
 
@@ -36,6 +40,8 @@ body {
     padding-right: 5px;
     padding-top: auto;
     border: 1px solid black;
+    border-radius: .3em;
+    background: rgba(119, 136, 153,.1)
 }
 
 #tracks:hover {
@@ -90,6 +96,8 @@ body {
     padding-right: 5px;
     padding-top: auto;
     border:1px solid black;
+    border-radius: .3em;
+    background: rgba(119, 136, 153,.1)
 }
 
 #playlists:hover {
@@ -100,10 +108,12 @@ body {
 }
 
 .commentBox {
+    border-radius: .3em;
     padding-left: 5px;
     padding-right: 5px;
     padding-top: auto;
     border: 1px solid black;
+    background: rgba(119, 136, 153,.1)
 }
 
 #comment-div {
@@ -125,6 +135,7 @@ body {
 }
 
 .comments-box{
+    border-radius: .3em;
     border:1px solid black;
     width: 100%;
     overflow-y: auto;
@@ -133,10 +144,12 @@ body {
 }
 
 .uploadTrack {
+    border-radius: .3em;
     padding-left: 5px;
     padding-right: 5px;
     padding-top: auto;
     border: 1px solid black;
+    background: rgba(119, 136, 153,.1)
 }
 
 .uploadTrack:hover {
@@ -145,10 +158,12 @@ body {
 }
 
 .deleteTrack {
+    border-radius: .3em;
     padding-left: 5px;
     padding-right: 5px;
     padding-top: auto;
     border: 1px solid black;
+    background: rgba(119, 136, 153,.1)
 }
 
 .deleteTrack:hover {
@@ -157,10 +172,12 @@ body {
 }
 
 .createPlaylist {
+    border-radius: .3em;
     padding-left: 5px;
     padding-right: 5px;
     padding-top: auto;
     border: 1px solid black;
+    background: rgba(119, 136, 153,.1)
 }
 
 .createPlaylist:hover {
@@ -169,10 +186,12 @@ body {
 }
 
 .deletePlaylist {
+    border-radius: .3em;
     padding-left: 5px;
     padding-right: 5px;
     padding-top: auto;
     border: 1px solid black;
+    background: rgba(119, 136, 153,.1)
 }
 
 .deletePlaylist:hover {
@@ -181,6 +200,7 @@ body {
 }
 
 .createComment {
+    border-radius: .3em;
     padding-left: 5px;
     padding-right: 5px;
     padding-top: auto;
@@ -194,14 +214,23 @@ body {
 }
 
 .deleteComment {
+    border-radius: .3em;
     padding-left: 5px;
     padding-right: 5px;
     padding-top: auto;
     border: 1px solid black;
+    background: rgba(119, 136, 153,.1)
 }
 
 
 .deleteComment:hover {
     cursor:pointer;
     background:orange;
+}
+
+/* .moveToPlaylist {
+} */
+
+.moveToPlaylist:hover {
+    color:orange;
 }

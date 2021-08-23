@@ -34,7 +34,7 @@ function App() {
       {isLoaded && (
         <Switch>
           <Route exact path='/'>
-            <HomePage />
+            <HomePage setCurrentlyPlaying={setCurrentlyPlaying} />
           </Route>
           <Route path="/login">
             <LoginFormPage />
@@ -43,7 +43,7 @@ function App() {
             <SignupFormPage />
           </Route>
           <Route path='/breeds'>
-            <BreedList />
+            <BreedList setCurrentlyPlaying={setCurrentlyPlaying} />
           </Route>
           <Route path='/users'>
             <UserList setCurrentlyPlaying={setCurrentlyPlaying} />
@@ -62,7 +62,7 @@ function App() {
           </Route>
         </Switch>
       )}
-      <footer><AudioPlayer layout='horizontal' src={currentlyPlaying} /></footer>
+      <footer><div className='musicPlayer'><AudioPlayer layout='horizontal' volume={.2} src={currentlyPlaying} /></div><div className='gitHubInfo'><Link className='gitHubLink' to={'https://github.com/Kristianmartinw/houndcloud#readme'}><img className='gitHub' src='https://1000logos.net/wp-content/uploads/2021/05/GitHub-logo.png'></img></Link></div></footer>
     </>
   );
 }

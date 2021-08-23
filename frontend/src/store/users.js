@@ -46,6 +46,32 @@ export const deletePlaylist = (id) => async (dispatch) => {
     }
 }
 
+export const addSongToPlaylist = data => async (dispatch) => {
+    const response = await csrfFetch('/api/playlists/addSong', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    });
+
+    if (response.ok) {
+        const playlists = await response.json();
+        dispatch(loadUsers(playlists))
+    }
+}
+
+export const removeSongFromPlaylist = data => async (dispatch) => {
+    const response = await csrfFetch(`/api/playlists/${data.playlistId}/${data.songId}`, {
+        method: 'DELETE'
+    });
+
+    if (response.ok) {
+        const playlists = await response.json();
+        dispatch(loadUsers(playlists))
+    }
+}
+
 const initialState = {}
 
 const usersReducer = (state = initialState, action) => {

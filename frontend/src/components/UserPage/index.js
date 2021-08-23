@@ -3,7 +3,7 @@ import './userPage.css';
 import { useParams } from 'react-router';
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom';
-import { createNewPlaylist, deletePlaylist, getUsers } from '../../store/users';
+import { addSongToPlaylist, createNewPlaylist, deletePlaylist, getUsers } from '../../store/users';
 import { createNewComment, deleteComment, deleteASong, uploadSong, createNewSong } from '../../store/songs';
 
 const UserPage = ({ setCurrentlyPlaying }) => {
@@ -17,12 +17,13 @@ const UserPage = ({ setCurrentlyPlaying }) => {
     const [playlists, setPlaylists] = useState(false)
     const [comment, setComment] = useState('')
     const [file, setFile] = useState(null)
-    const [selectSong, setSelectSong] = useState(false)
     const [breedId, setBreedId] = useState(false)
-    const [removeSong, setRemoveSong] = useState(false)
+    const [selectSong, setSelectSong] = useState(false)
     const [uploadForm, setUploadForm] = useState(false)
+    const [removeSong, setRemoveSong] = useState(false)
+    const [addToForm, setAddToForm] = useState(false)
     const [uploadConfirm, setUploadConfirm] = useState('')
-    const [selectPlaylist, setSelectPlaylist] = useState(false)
+    const [selectPlaylist, setSelectPlaylist] = useState('')
     const [playlistName, setPlaylistName] = useState('')
     const [createPlaylist, setCreatePlaylist] = useState(false)
     const [removePlaylist, setRemovePlaylist] = useState(false)
@@ -64,11 +65,25 @@ const UserPage = ({ setCurrentlyPlaying }) => {
                 songImg: '/placeholder',
                 breedId
             }
-            console.log('THIS IS THE DATA: ', data)
             await dispatch(createNewSong(data))
             dispatch(getUsers())
             setUploadForm(false)
         })
+    }
+
+    const handleAddToForm = id => {
+        setAddToForm(addToForm ? false : true)
+        setSelectSong(id)
+    }
+
+    const addToPlaylistSubmit = e => {
+        e.preventDefault()
+        const payload = {
+            playlistId: +selectPlaylist,
+            songId: +selectSong
+        }
+        dispatch(addSongToPlaylist(payload))
+        setAddToForm(false)
     }
 
     const handlePlaylistSubmit = e => {
@@ -91,7 +106,6 @@ const UserPage = ({ setCurrentlyPlaying }) => {
             comment: comment,
             songId: selectedSong?.id
         }
-        console.log('CHECK FOR DATA', data)
         dispatch(createNewComment(data))
         setComment('')
         setCreateComment(false)
@@ -143,15 +157,24 @@ const UserPage = ({ setCurrentlyPlaying }) => {
                         {tracks &&
                             <div id='song-playlist'>
                                 <div>
-                                    {user.Songs.map(song => <div className='user-songlist' tabindex={song.id} id={song.id} onClick={e => setSelectSong(e.target.id)} key={song.id}> <span onClick={e => setCurrentlyPlaying(song.songUrl)}>▶</span> {song.name}</div>)}
+                                    {user.Songs.map(song => <div className='user-songlist' onClick={e => setSelectSong(song.id)} tabIndex={song.id} id={song.id} key={song.id}>
+                                        <span onClick={e => setCurrentlyPlaying(song.songUrl)}>▶</span> {song.name}
+                                        <span onClick={e => handleAddToForm(song.id)} id={song.id} className='moveToPlaylist'>➕</span>{addToForm && selectSong === song.id ? (<div>
+                                            <form onSubmit={addToPlaylistSubmit}>
+                                                <select value={selectPlaylist} onChange={e => setSelectPlaylist(e.target.value)}>
+                                                    <option disabled required value=''>Select playlist to move to:</option>
+                                                    {user.Playlists.map(playlist => <option className='dropdown-playlist' key={playlist.id} value={playlist.id}>{playlist.name}</option>)}
+                                                </select>
+                                                <button>Submit</button>
+                                                <button onClick={e => setAddToForm(false)}>Cancel</button>
+                                            </form></div>) : (<></>)}</div>)}
                                 </div>
                             </div>
                         }
-
                         {playlists &&
                             <div id='playlists-div'>
                                 <div>
-                                    {user.Playlists.map(playlist => <div className='user-playlist' tabindex={playlist.id} id={playlist.id} onClick={e => setSelectPlaylist(e.target.id)} key={playlist.id}> ▶ {playlist.name}</div>)}
+                                    {user.Playlists.map(playlist => <div className='user-playlist' tabIndex={playlist.id} id={playlist.id} onClick={e => setSelectPlaylist(e.target.id)} key={playlist.id}> ▶ {playlist.name}</div>)}
                                 </div>
                             </div>
                         }
@@ -243,7 +266,7 @@ const UserPage = ({ setCurrentlyPlaying }) => {
                                     <>
                                         <div>
                                             <form onSubmit={handleCommentSubmit}>
-                                                <input value={comment} onChange={e => setComment(e.target.value)} placeholder='Enter your comment here'></input>
+                                                <textarea value={comment} onChange={e => setComment(e.target.value)} placeholder='Enter your comment here' />
                                                 <button>Submit</button>
                                             </form>
                                             <button onClick={e => setCreateComment(false)}>Cancel</button>
