@@ -19,6 +19,6 @@
 }
 
 .list {
-    overflow: auto;
+    overflow-y: auto;
     height: 87%;
 }

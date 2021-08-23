@@ -23,14 +23,14 @@ const BreedList = ({ setCurrentlyPlaying }) => {
                         <div>
                             <div className='breedName'>{selectedBreed.name}</div>
                             <div className='breedsSongsContainers'>
-                                {selectedBreed.Songs.map(song => <div className='breedsSongsList' tabindex={song.id} id={song.id} key={song.id}><span onClick={e => setCurrentlyPlaying(song.songUrl)}>▶</span> {song.name}</div>)}
+                                {selectedBreed.Songs.map(song => <div className='breedsSongsList' tabIndex={song.id} id={song.id} key={song.id}><span onClick={e => setCurrentlyPlaying(song.songUrl)}>▶</span> {song.name}</div>)}
                             </div>
                         </div>
                         : <div className='selectBreed'>Select a Breed</div>
                     }
                     <div className='breeds-container'>
                         <div>
-                            {breeds.map(breed => <div className='dogImg' id={breed.name} onClick={e => setBreed(e.currentTarget.id)} key={breed.id}><img className='breedsImg' tabindex={breed.breedImg} src={breed.breedImg}></img></div>)}
+                            {breeds.map(breed => <div className='dogImg' id={breed.name} onClick={e => setBreed(e.currentTarget.id)} key={breed.id}><img className='breedsImg' alt="breeds" tabIndex={breed.breedImg} src={breed.breedImg}></img></div>)}
                         </div>
                     </div>
                 </div>

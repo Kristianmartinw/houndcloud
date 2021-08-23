@@ -4,7 +4,7 @@ const { singleMulterUpload, singlePublicFileUpload } = require('../../awsS3')
 const router = express.Router();
 const { Comment, User, Song, Playlist } = require('../../db/models')
 
-// Post /api/users ---Sign up
+
 router.post("/upload", singleMulterUpload("song"), asyncHandler(async (req, res) => {
     const song = req.file;
     const songUrl = await singlePublicFileUpload(req.file);
@@ -29,7 +29,7 @@ router.get('/', asyncHandler(async (req, res) => {
 router.delete('/:id', asyncHandler(async (req, res) => {
     const song = await Song.findByPk(+req.params.id);
     song.destroy();
-    const users = await User.findAll({ include: [Song, Playlist] })
+    const users = await User.findAll({ include: [Song, { model: Playlist, include: Song }] })
     res.json(users);
 }))
 

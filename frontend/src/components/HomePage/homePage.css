@@ -107,6 +107,7 @@
     position: relative;
     border: 1px dotted black;
     overflow-y: auto;
+    overflow-x: hidden;
     height: 30em;
     border-radius: .7em;
     background: linear-gradient(217deg, rgba(119, 136, 153,.8), rgba(119, 136, 153,0) 70.71%)
@@ -129,4 +130,24 @@
 .home-songlist:focus {
     cursor: pointer;
     background: rgba(255, 166, 0, .2);
+}
+
+.gitHubInfo {
+    width: 100%;
+    text-align: center;
+    transform: translateY(410%);
+}
+
+.randomBreed {
+    color: rgba(255, 166, 0, 1);
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+
+}
+
+.gitHubLink {
+    width: 50px;
+}
+
+.gitHubImage {
+    width: 70px;
 }

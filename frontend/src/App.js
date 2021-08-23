@@ -54,7 +54,7 @@ function App() {
                 <div className='routeContainer'>
                   <h1 className='foohfo'>404</h1>
                   <h3 className='top404message'>You expected a page to load but you got DJ Pug instead.</h3>
-                  <img className='foohfoimg' src={'https://i.imgur.com/N5UDGn5.gif'}></img>
+                  <img className='foohfoimg' alt="404 pug" src={'https://i.imgur.com/N5UDGn5.gif'}></img>
                   <h3 className='bottom404message'>Click <Link to='/'>here</Link> so we can get you back to listening to music.</h3>
                 </div>
               </div>
@@ -62,7 +62,7 @@ function App() {
           </Route>
         </Switch>
       )}
-      <footer><div className='musicPlayer'><AudioPlayer layout='horizontal' volume={.2} src={currentlyPlaying} /></div><div className='gitHubInfo'><Link className='gitHubLink' to={'https://github.com/Kristianmartinw/houndcloud#readme'}><img className='gitHub' src='https://1000logos.net/wp-content/uploads/2021/05/GitHub-logo.png'></img></Link></div></footer>
+      <footer><div className='musicPlayer'><AudioPlayer layout='horizontal' volume={.2} src={currentlyPlaying} /></div></footer>
     </>
   );
 }

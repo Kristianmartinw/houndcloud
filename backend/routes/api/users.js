@@ -57,7 +57,7 @@ router.post('/', validateSignup, asyncHandler(async (req, res) => {
 
 router.get('/', asyncHandler(async (req, res) => {
     const users = await User.findAll({
-        include: [Song, Playlist]
+        include: [Song, { model: Playlist, include: Song }]
     });
     return res.json(users)
 }));

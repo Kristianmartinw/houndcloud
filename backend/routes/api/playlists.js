@@ -16,21 +16,21 @@ const validatePlaylist = [
 
 router.post('/', validatePlaylist, asyncHandler(async (req, res) => {
     const playlist = await Playlist.create(req.body)
-    const user = await User.findByPk(playlist.userId, { include: [Song, Playlist] })
+    const user = await User.findByPk(playlist.userId, { include: [Song, { model: Playlist, include: Song }] })
     return res.json(user)
 }))
 
 router.delete('/:id', asyncHandler(async (req, res) => {
     const playlist = await Playlist.findByPk(+req.params.id);
     playlist.destroy();
-    const users = await User.findAll({ include: [Song, Playlist] })
+    const users = await User.findAll({ include: [Song, { model: Playlist, include: Song }] })
     res.json(users);
 }))
 
 router.post('/addSong', asyncHandler(async (req, res) => {
     await JoinsSongsAndPlaylist.create(req.body);
     const playlists = await User.findAll({
-        include: [Song, Playlist]
+        include: [Song, { model: Playlist, include: Song }]
     });
     return res.json(playlists);
 }))
@@ -38,7 +38,7 @@ router.post('/addSong', asyncHandler(async (req, res) => {
 router.delete('/:playlistId/:songId', asyncHandler(async (req, res) => {
     const playlistId = +req.params.playlistId;
     const songId = +req.params.songId;
-    const join = await SJoinsSongsAndPlaylist.findOne({
+    const join = await JoinsSongsAndPlaylist.findOne({
         where: {
             playlistId,
             songId
@@ -46,7 +46,7 @@ router.delete('/:playlistId/:songId', asyncHandler(async (req, res) => {
     });
     join.destroy();
     const playlists = await User.findAll({
-        include: [Song, Playlist]
+        include: [Song, { model: Playlist, include: Song }]
     });
     return res.json(playlists);
 }))

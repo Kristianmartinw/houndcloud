@@ -20,7 +20,7 @@ const UserList = ({ setCurrentlyPlaying }) => {
             <Route exact path='/users'>
                 <div id='users-div'>
                     <div className='list'>
-                        {users.map((user) => <div className='userBox' key={user.id}><Link to={`/users/${user.id}`}><img className='userPic' src='https://christopherscottedwards.com/wp-content/uploads/2018/07/Generic-Profile.jpg'></img>{user.username}</Link></div>)}
+                        {users.map((user) => <div className='userBox' key={user.id}><Link to={`/users/${user.id}`}><img className='userPic' alt="userPagePlaceholder" src='https://christopherscottedwards.com/wp-content/uploads/2018/07/Generic-Profile.jpg'></img>{user.username}</Link></div>)}
                     </div>
                 </div>
             </Route>

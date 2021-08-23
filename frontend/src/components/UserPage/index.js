@@ -3,7 +3,7 @@ import './userPage.css';
 import { useParams } from 'react-router';
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom';
-import { addSongToPlaylist, createNewPlaylist, deletePlaylist, getUsers } from '../../store/users';
+import { addSongToPlaylist, createNewPlaylist, deletePlaylist, getUsers, removeSongFromPlaylist } from '../../store/users';
 import { createNewComment, deleteComment, deleteASong, uploadSong, createNewSong } from '../../store/songs';
 
 const UserPage = ({ setCurrentlyPlaying }) => {
@@ -12,6 +12,7 @@ const UserPage = ({ setCurrentlyPlaying }) => {
     const users = Object.values(useSelector(state => state.users))
     const user = users?.find(user => user.id === +userId)
     const authorized = user?.id === sessionUser?.id
+    const currentUser = users?.find(user => user.id === sessionUser?.id)
 
     const [tracks, setTracks] = useState(false)
     const [playlists, setPlaylists] = useState(false)
@@ -36,6 +37,7 @@ const UserPage = ({ setCurrentlyPlaying }) => {
     const selectedSong = songs.find(song => (song.id === +selectSong))
     const userSong = +selectedSong?.userId === +sessionUser?.id
     const breeds = Object.values(useSelector(state => state.breeds))
+    const selectedPlaylist = user?.Playlists.find(playlist => (playlist.id === +selectPlaylist))
 
     const handleToggle = (e) => {
         if (e.target.id === 'tracks') {
@@ -143,12 +145,23 @@ const UserPage = ({ setCurrentlyPlaying }) => {
         setRemoveSong(false)
     }
 
+    const handleDelSongPlaylist = e => {
+        const playlistId = +selectPlaylist
+        const songId = e.target.id
+
+        const payload = {
+            playlistId,
+            songId
+        }
+        dispatch(removeSongFromPlaylist(payload))
+    }
+
     return (
         <>
             {user &&
                 <div className='user-profile'>
                     <div id='profile-head'>
-                        <img className='userPic' src='https://christopherscottedwards.com/wp-content/uploads/2018/07/Generic-Profile.jpg'></img>
+                        <img className='userPic' alt="userPlaceholder" src='https://christopherscottedwards.com/wp-content/uploads/2018/07/Generic-Profile.jpg'></img>
                         <span className='userUsername'>{user.username}</span>
                     </div>
                     <span id='tracks' onClick={handleToggle}>Tracks</span>
@@ -163,7 +176,7 @@ const UserPage = ({ setCurrentlyPlaying }) => {
                                             <form onSubmit={addToPlaylistSubmit}>
                                                 <select value={selectPlaylist} onChange={e => setSelectPlaylist(e.target.value)}>
                                                     <option disabled required value=''>Select playlist to move to:</option>
-                                                    {user.Playlists.map(playlist => <option className='dropdown-playlist' key={playlist.id} value={playlist.id}>{playlist.name}</option>)}
+                                                    {currentUser.Playlists.map(playlist => <option className='dropdown-playlist' key={playlist.id} value={playlist.id}>{playlist.name}</option>)}
                                                 </select>
                                                 <button>Submit</button>
                                                 <button onClick={e => setAddToForm(false)}>Cancel</button>
@@ -174,7 +187,13 @@ const UserPage = ({ setCurrentlyPlaying }) => {
                         {playlists &&
                             <div id='playlists-div'>
                                 <div>
-                                    {user.Playlists.map(playlist => <div className='user-playlist' tabIndex={playlist.id} id={playlist.id} onClick={e => setSelectPlaylist(e.target.id)} key={playlist.id}> ▶ {playlist.name}</div>)}
+                                    {user.Playlists.map(playlist =>
+                                        <>
+                                            <div className='user-playlist' tabIndex={playlist.id} id={playlist.id} onClick={e => setSelectPlaylist(e.target.id)} key={playlist.id}> ▶ {playlist.name}</div>
+                                            <div className='playlistSongDiv' id={`${playlist.id}-songs`}>
+                                                {playlist?.Songs?.map(song => <div>{song.name}<button onClick={handleDelSongPlaylist} id={song.id}>Remove</button></div>)}
+                                            </div>
+                                        </>)}
                                 </div>
                             </div>
                         }
