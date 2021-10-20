@@ -62,7 +62,9 @@ function App() {
           </Route>
         </Switch>
       )}
-      <footer><div className='musicPlayer'><AudioPlayer layout='horizontal' volume={.2} src={currentlyPlaying} /></div></footer>
+      <footer>
+        <div className='musicPlayer'><AudioPlayer layout='horizontal' volume={.2} src={currentlyPlaying} /></div>
+      </footer>
     </>
   );
 }
